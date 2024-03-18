@@ -1,29 +1,6 @@
-
-// const textInput = document.querySelector
-// ("#todo-task");
-// // textInput.addEventListener("input", (evt) =>{
-// //     textOutput.innerText = evt.target.value;
-// // })
-
-
-// const textOutput = document.querySelector
-// ("#text-output");
-// textInput.addEventListener("input", (evt) =>{
-//     // textOutput.innerText = evt.target.value;
-//     console.log(evt.target.value);
-//     //console.log("user is typing")
-// })
-
-
 const toDoForm = document.querySelector("#todo-form");
 const toDoList = document.querySelector('#list');
-// const deleteButton = document.createElement("button");
-// deleteButton.innerText("delete");
-// deleteButton.setAttribute("click", "removeItemFromList(this)");
 
-// function removeItemFromList(evt) {
-//     evt.parentElement.remove();
-// }
 
 toDoForm.addEventListener("submit", (evt) =>{
     evt.preventDefault();
@@ -42,3 +19,10 @@ toDoForm.addEventListener("submit", (evt) =>{
 
 });   
 
+const showDateButton = document.querySelector("#show-date");
+const displayDate = document.querySelector("#display-date");
+
+showDateButton.addEventListener("click", (evt) => {
+    const date = new Date();
+displayDate.innerText = new Intl.DateTimeFormat('en-UK').format(date);
+});
