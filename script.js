@@ -1,5 +1,6 @@
 const toDoForm = document.querySelector("#todo-form");
 const toDoList = document.querySelector('#list');
+const completedList = document.querySelector("#completed-tasks")
 
 
 toDoForm.addEventListener("submit", (evt) =>{
@@ -10,12 +11,22 @@ toDoForm.addEventListener("submit", (evt) =>{
 
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
+   
+
     deleteButton.addEventListener("click", (evt) => {
         newListItem.remove(evt);
     });
+    const completeButton = document.createElement("button");
+    completeButton.textContent = 'Complete!';
+    
+    completeButton.addEventListener("click", () => {
+        completedList.appendChild(newListItem);
+    });
+    
 
     newListItem.appendChild(deleteButton);
-    toDoList.appendChild(newListItem)
+    toDoList.appendChild(newListItem);
+    newListItem.appendChild(completeButton);
 
 });   
 
@@ -26,3 +37,4 @@ showDateButton.addEventListener("click", (evt) => {
     const date = new Date();
 displayDate.innerText = new Intl.DateTimeFormat('en-UK').format(date);
 });
+
